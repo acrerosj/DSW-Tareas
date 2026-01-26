@@ -20,7 +20,8 @@ class TaskFactory extends Factory
             'title' => fake()->realTextBetween($minNbChars = 10, $maxNbChars = 40, $indexSize = 2),
             'description' => fake()->realTextBetween($minNbChars = 50, $maxNbChars = 400, $indexSize = 2),
             'completed' => fake()->boolean(),
-            'endtime' => fake()->dateTimeBetween('-10 week', '+1 year')
+            'endtime' => fake()->dateTimeBetween('-10 week', '+1 year'),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

@@ -24,6 +24,8 @@
                             {{ session('success') }}
                         </div>
                     @endif
+                    @auth
+                        
                     <form action="{{ route('tasks.store') }}" method="POST" class="mb-6">
                         @csrf
                         <div class="mb-4">
@@ -32,7 +34,7 @@
                         </div>
                         <div class="mb-4">
                             <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Descripción</label>
-                            <textarea name="description" id="description" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200" required></textarea>
+                            <textarea name="description" id="description" rows="4" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"></textarea>
                         </div>
                         <div>
                             <label for="due_date" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Fecha de Vencimiento</label>
@@ -44,6 +46,7 @@
                         </div>
                         <button type="submit" class="my-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Agregar Tarea</button>
                     </form>
+                    @endauth
                     <x-task-table :tasks="$tasks" />
                 </div>
             </div>

@@ -29,7 +29,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->merge([
+            'completed' => $request->has('completed'),
+            'endtime' => $request->input('endtime') ?: now(),
+        ]);
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'boolean',
+            'endtime' => 'date',
+        ]);
+
+        Task::create($validated);
+        return redirect()->route('tasks.index')->with('success', 'La tarea ha sido creada exitosamente.');
     }
 
     /**
