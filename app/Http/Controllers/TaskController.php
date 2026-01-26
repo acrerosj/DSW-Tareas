@@ -12,7 +12,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return 'Estoy en index de TaskController';
+        $tasks = Task::all();
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -60,6 +61,7 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return redirect()->route('tasks.index')->with('success', 'La tarea ha sido eliminada exitosamente.');
     }
 }
