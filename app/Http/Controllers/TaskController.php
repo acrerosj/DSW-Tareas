@@ -13,9 +13,19 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        // Si todos los usuarios pueden ver todas las tareas
+        // $tasks = Task::all();
+        $tasks = Task::paginate(10);
+
+        // Si solo los usuarios autenticados pueden ver sus propias tareas
+        // $tasks = [];
+        // if (Auth::check()) {
+        //     //$tasks = Task::where('user_id', Auth::id())->get();
+        //     $tasks = Auth::user()->tasks;
+        // } 
         return view('tasks.index', compact('tasks'));
-    }
+
+    } 
 
     /**
      * Show the form for creating a new resource.

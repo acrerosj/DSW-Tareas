@@ -5,11 +5,11 @@
         <thead class="bg-gray-100 dark:bg-gray-700">
             <tr>
                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">ID</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">Usuario</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">Fecha Vencimiento</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">Titulo</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">Descripción</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">Acciones</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Usuario') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Fecha_Vencimiento') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('title') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('description') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Acciones') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -33,4 +33,7 @@
             @endforeach
         </tbody>
     </table>
+    <div class="mt-4">
+        {{ $tasks->links() }}
+    </div>
 </div>
