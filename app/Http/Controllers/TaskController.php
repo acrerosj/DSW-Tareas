@@ -33,6 +33,7 @@ class TaskController extends Controller
         $request->merge([
             'completed' => $request->has('completed'),
             'endtime' => $request->input('endtime') ?: now(),
+            'user_id' => Auth::id(),
         ]);
 
         $validated = $request->validate([
@@ -40,6 +41,7 @@ class TaskController extends Controller
             'description' => 'nullable|string',
             'completed' => 'boolean',
             'endtime' => 'date',
+            'user_id' => 'required|exists:users,id',
         ]);
 
         Task::create($validated);
