@@ -258,5 +258,14 @@
     "Yes": "Sí",
     "You are receiving this email because we received a password reset request for your account.": "Ha recibido este mensaje porque se solicitó un restablecimiento de contraseña para su cuenta.",
     "You're logged in!": "¡Usted está conectado!",
-    "Your email address is unverified.": "Su dirección de correo electrónico no está verificada."
+    "Your email address is unverified.": "Su dirección de correo electrónico no está verificada.",
+    "Tasks": "Tareas",
+    "user": "Usuario",
+    "endTime": "Fecha de vencimiento",
+    "title": "Título",
+    "description": "Descripción",
+    "actions_column": "Acciones",
+    "completed-ckeck": "Marcar si completada",
+    "Update Task": "Actualizar tarea",
+    "Edit Task": "Editar tarea"
 }

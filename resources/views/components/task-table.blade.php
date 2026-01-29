@@ -5,11 +5,11 @@
         <thead class="bg-gray-100 dark:bg-gray-700">
             <tr>
                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">ID</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Usuario') }}</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Fecha_Vencimiento') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('user') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('endTime') }}</th>
                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('title') }}</th>
                 <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('description') }}</th>
-                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('Acciones') }}</th>
+                <th class="px-6 py-3 text-left text-sm font-semibold text-gray-900 dark:text-gray-100">{{ __('actions_column') }}</th>
             </tr>
         </thead>
         <tbody>
@@ -25,8 +25,9 @@
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">Eliminar</button>
+                            <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">{{ __('Delete') }}</button>
                         </form>
+                        <a href="{{ route('tasks.edit', $task->id) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">{{ __('Edit') }}</a>
                         @endif
                     </td>
                 </tr>

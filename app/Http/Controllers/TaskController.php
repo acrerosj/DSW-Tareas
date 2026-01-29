@@ -32,7 +32,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        // No lo usamos porque el formulario de creación está en la vista index
     }
 
     /**
@@ -71,7 +71,11 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+        // Verificar que el usuario autenticado es el propietario de la tarea
+        if (Auth::id() !== $task->user_id) {
+            return redirect()->route('tasks.index')->with('error', 'No tienes permiso para editar esta tarea.');
+        }
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -79,7 +83,24 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        // Verificar que el usuario autenticado es el propietario de la tarea
+        if (Auth::id() !== $task->user_id) {
+            return redirect()->route('tasks.index')->with('error', 'No tienes permiso para actualizar esta tarea.');
+        }
+
+        $request->merge([
+            'completed' => $request->has('completed'),
+        ]);
+
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'completed' => 'boolean',
+            'endtime' => 'date|required',
+        ]);
+
+        $task->update($validated);
+        return redirect()->route('tasks.index')->with('success', 'La tarea ha sido actualizada exitosamente.');
     }
 
     /**
