@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use DragonCode\Support\Instances\Call;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,5 +26,6 @@ class DatabaseSeeder extends Seeder
         // $this->call([
         //     TaskSeeder::class,
         // ]);
+
     }
 }
