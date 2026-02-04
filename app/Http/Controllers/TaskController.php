@@ -15,8 +15,8 @@ class TaskController extends Controller
     {
         // Si todos los usuarios pueden ver todas las tareas
         // $tasks = Task::all();
-        $tasks = Task::paginate(10);
-
+        $tasks = Task::with('user')->paginate(10);
+    
         // Si solo los usuarios autenticados pueden ver sus propias tareas
         // $tasks = [];
         // if (Auth::check()) {
